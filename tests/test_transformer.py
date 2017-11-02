@@ -108,14 +108,14 @@ class TransformerTest(TestCase):
         request = self.factory.get('/')
 
         test_file = MockFile(FILE_CONTENT, 4)
-        mock_file = MagicMock()
+        mock_file = MagicMock(spec=test_file)
         type(mock_file).encoding = PropertyMock(return_value='utf-8')
         type(mock_file).closed = PropertyMock(side_effect=test_file.closed)
         mock_file.read.side_effect = test_file.read
         mock_file.close.side_effect = test_file.close
         mock_file.seek.side_effect = test_file.seek
 
-        urlopen_mock = get_urlopen_mock(mock_file)
+        urlopen_mock = get_urlopen_mock(body=mock_file)
 
         with patch(URLOPEN, urlopen_mock):
             response = CustomProxyView.as_view()(request, '/')
@@ -135,14 +135,14 @@ class TransformerTest(TestCase):
 
         test_file = MockFile(FILE_CONTENT)
 
-        mock_file = MagicMock()
+        mock_file = MagicMock(spec=test_file)
         type(mock_file).encoding = PropertyMock(return_value='utf-8')
         type(mock_file).closed = PropertyMock(side_effect=test_file.closed)
         mock_file.read.side_effect = test_file.read
         mock_file.close.side_effect = test_file.close
         mock_file.seek.side_effect = test_file.seek
 
-        urlopen_mock = get_urlopen_mock(mock_file)
+        urlopen_mock = get_urlopen_mock(body=mock_file)
 
         with patch(URLOPEN, urlopen_mock):
             response = CustomProxyView.as_view()(request, '/')
