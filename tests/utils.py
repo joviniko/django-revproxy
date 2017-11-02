@@ -55,3 +55,6 @@ class MockFile():
 
     def seek(self, size):
         return self.mock_file.seek(size)
+
+    def stream(self, size):
+        return self.mock_file.stream(size)
