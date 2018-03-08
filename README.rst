@@ -2,14 +2,8 @@
 Welcome to django-revproxy
 ==========================
 
-.. image:: https://travis-ci.org/TracyWebTech/django-revproxy.svg?branch=master
-       :target: https://travis-ci.org/TracyWebTech/django-revproxy
-
-.. image:: https://coveralls.io/repos/TracyWebTech/django-revproxy/badge.svg
-       :target: https://coveralls.io/r/TracyWebTech/django-revproxy?branch=master
-
-.. image:: https://landscape.io/github/TracyWebTech/django-revproxy/master/landscape.svg?style=flat
-      :target: https://landscape.io/github/TracyWebTech/django-revproxy/master
+.. image:: https://travis-ci.org/joviniko/django-revproxy.svg?branch=master
+       :target: https://travis-ci.org/joviniko/django-revproxy
 
 
 A simple reverse proxy using Django. It allows to use Django as a
